@@ -7,27 +7,17 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class Usuario
+    public class Proveedor
     {
         //Atributos
-        public int IDUsuario { get; set; }
+
+        public int IDProveedor { get; set; }
         public string Cedula { get; set; }
-        public string NombreCompleto { get; set; }
-        public string Contrasennia { get; set; }
+        public string Nombre { get; set; }
         public string Telefono { get; set; }
-        public bool Activo { get; set; }
-        public string CorreoRespaldo { get; set; }
+        public string Email { get; set; }
 
-        //Atributos compuestos y su instancia
-    
-        TipoUsuario MiTipoUsuario { get; set; }
-
-        public Usuario()
-        {
-            MiTipoUsuario = new TipoUsuario();
-        }
-
-        //Metodos
+        //Métodos
 
         public bool Agregar()
         {
@@ -54,12 +44,12 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public DataTable ListarActivos(bool VerActivos = true)
+        public bool ConsultarEmail()
         {
-            DataTable R = new DataTable();
+            bool R = false;
             return R;
         }
-        public DataTable ListarInactivos()
+        public DataTable ListarProveedores()
         {
             DataTable R = new DataTable();
             return R;

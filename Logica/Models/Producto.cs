@@ -17,13 +17,18 @@ namespace Logica.Models
         public decimal Existencia { get; set; }
 
         //Atributos compuestos y su instancia
+
+        //REVISAR SI LA LISTA ESTÁ BIEN CONSTRUIDA
+        public List<Producto> Productos { get; set; }
         TipoProducto MiTipoProducto { get; set; }       
         UnidadMedida MiUnidadMedida { get; set; }
-
+        Proveedor MiProveedor { get; set; }
         public Producto()
         {
             MiTipoProducto = new TipoProducto();
+            MiProveedor = new Proveedor();
             MiUnidadMedida = new UnidadMedida();    
+            Productos = new List<Producto>();
         }
 
         //Métodos

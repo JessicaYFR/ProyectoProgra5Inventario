@@ -7,28 +7,29 @@ using System.Threading.Tasks;
 
 namespace Logica.Models
 {
-    public class Usuario
+    public class Pedido
     {
         //Atributos
-        public int IDUsuario { get; set; }
-        public string Cedula { get; set; }
-        public string NombreCompleto { get; set; }
-        public string Contrasennia { get; set; }
-        public string Telefono { get; set; }
-        public bool Activo { get; set; }
-        public string CorreoRespaldo { get; set; }
+        public int IDPedido { get; set; }
+        public DateTime FecgaSolicitud { get; set; }
+        public string Direccion { get; set; }
+        public decimal CantidadSolicitada { get; set; }
 
-        //Atributos compuestos y su instancia
-    
-        TipoUsuario MiTipoUsuario { get; set; }
+        //Atributos compuestos 
 
-        public Usuario()
+        //REVISAR SI LA LISTA ESTÁ BIEN CONSTRUIDA
+        public List<Pedido> Pedidos { get; set; }
+        Cliente MiCliente { get; set; }
+        Producto MiProducto { get; set; }
+
+        public Pedido()
         {
-            MiTipoUsuario = new TipoUsuario();
+            MiCliente = new Cliente();
+            MiProducto = new Producto();
+            Pedidos = new List<Pedido>();
         }
 
-        //Metodos
-
+        //Métodos
         public bool Agregar()
         {
             bool R = false;
@@ -49,17 +50,12 @@ namespace Logica.Models
             bool R = false;
             return R;
         }
-        public bool ConsultarPorCedula()
-        {
-            bool R = false;
-            return R;
-        }
-        public DataTable ListarActivos(bool VerActivos = true)
+        public DataTable ListarPorCedulaCliente()
         {
             DataTable R = new DataTable();
             return R;
         }
-        public DataTable ListarInactivos()
+        public DataTable ListarPorRangoFecha(DateTime pFechaInicial, DateTime pFechaFinal)
         {
             DataTable R = new DataTable();
             return R;
