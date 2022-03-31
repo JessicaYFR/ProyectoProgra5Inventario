@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32319.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoProgra5Inventario", "ProyectoProgra5Inventario\ProyectoProgra5Inventario.csproj", "{1694C392-393B-4C7E-87C2-EDC9B6A08979}"
+	ProjectSection(ProjectDependencies) = postProject
+		{30E910AD-E4AF-4D9D-91CA-D9F83D185790} = {30E910AD-E4AF-4D9D-91CA-D9F83D185790}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{30E910AD-E4AF-4D9D-91CA-D9F83D185790}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1694C392-393B-4C7E-87C2-EDC9B6A08979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1694C392-393B-4C7E-87C2-EDC9B6A08979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1694C392-393B-4C7E-87C2-EDC9B6A08979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1694C392-393B-4C7E-87C2-EDC9B6A08979}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E910AD-E4AF-4D9D-91CA-D9F83D185790}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E910AD-E4AF-4D9D-91CA-D9F83D185790}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E910AD-E4AF-4D9D-91CA-D9F83D185790}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E910AD-E4AF-4D9D-91CA-D9F83D185790}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {88038826-BA68-4A99-8A7F-706CC8956841}
+	EndGlobalSection
+EndGlobal
