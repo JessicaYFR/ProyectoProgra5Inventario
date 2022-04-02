@@ -8,13 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoProgra5Inventario
+namespace ProyectoProgra5Inventario.Formularios
 {
-    public partial class Form1 : Form
+    public partial class FrmUsuariosGestion : Form
     {
-        public Form1()
+        public FrmUsuariosGestion()
         {
             InitializeComponent();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
