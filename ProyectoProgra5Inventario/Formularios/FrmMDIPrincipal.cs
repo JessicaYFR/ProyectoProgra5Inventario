@@ -28,6 +28,8 @@ namespace ProyectoProgra5Inventario.Formularios
               
                 //y lo hago visible
                 ObjetosGlobales.MiFormGestionUsuarios.Show();
+
+                
             }
 
         }
