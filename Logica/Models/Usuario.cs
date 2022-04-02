@@ -19,7 +19,7 @@ namespace Logica.Models
         public string CorreoRespaldo { get; set; }
 
         //Atributos compuestos y su instancia
-    
+
         TipoUsuario MiTipoUsuario { get; set; }
 
         public Usuario()
@@ -57,6 +57,16 @@ namespace Logica.Models
         public DataTable ListarActivos(bool VerActivos = true)
         {
             DataTable R = new DataTable();
+
+            //Hago una instancia a la conexión para poder llamar los datos
+            Conexion MiCnn = new Conexion();
+
+            //Le asigno a R que es el dato de salida el objeto de conexión con 
+            //el llamado al método de select que es el que me sirve en este caso
+            //porque es SP lo que hace es un select de los usuarios, y por supuesto le paso por parámetro
+            // el nombre del SP
+            R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
+           
             return R;
         }
         public DataTable ListarInactivos()

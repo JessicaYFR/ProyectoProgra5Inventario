@@ -19,6 +19,16 @@ namespace ProyectoProgra5Inventario.Formularios
 
         private void gestiónDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            //el if es para permitir que el formulario solo se muestre una vez, es decir, sim importar cuantas veces se de click, solamente se abrirá una vez
+            //si es formulario no está visible, entonces:
+            if (!ObjetosGlobales.MiFormGestionUsuarios.Visible)
+            {
+                //hago una instancia del fromulario para llamarlo
+                ObjetosGlobales.MiFormGestionUsuarios = new FrmUsuariosGestion();
+              
+                //y lo hago visible
+                ObjetosGlobales.MiFormGestionUsuarios.Show();
+            }
 
         }
 
