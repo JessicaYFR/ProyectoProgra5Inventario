@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Logica.Models
 
         //Atributos compuestos y su instancia
 
-        TipoUsuario MiTipoUsuario { get; set; }
+        public TipoUsuario MiTipoUsuario { get; set; }
 
         public Usuario()
         {
@@ -32,6 +33,28 @@ namespace Logica.Models
         public bool Agregar()
         {
             bool R = false;
+
+            Conexion MiCnn3 = new Conexion();
+
+            //TO DO :Aplicar encriptacion a la contraseña
+
+            //lista de parametros que se envian al sp
+            MiCnn3.ListaParametros.Add(new SqlParameter("@Cedula",this.Cedula));
+            MiCnn3.ListaParametros.Add(new SqlParameter("@Nombre", this.NombreCompleto));
+            MiCnn3.ListaParametros.Add(new SqlParameter("@Contrasennia", this.Contrasennia));
+            MiCnn3.ListaParametros.Add(new SqlParameter("@Telefono", this.Telefono));
+            MiCnn3.ListaParametros.Add(new SqlParameter("@CorreoRespaldo", this.CorreoRespaldo));
+            MiCnn3.ListaParametros.Add(new SqlParameter("@UsuarioTipo", this.MiTipoUsuario.IDTipoUsuario));
+
+            int Resultado = MiCnn3.EjecutarUpdateDeleteInsert("SpUsuariosAgregar");
+
+            //en el sp cuando se ejecuta correctamente selecciona un 1 que es el 
+            //numero que captura la variable Resultado
+            if (Resultado>0)
+            {
+                R = true;
+            }
+
             return R;
         }
         public bool Editar()
@@ -52,6 +75,18 @@ namespace Logica.Models
         public bool ConsultarPorCedula()
         {
             bool R = false;
+
+            Conexion MiCnn = new Conexion();
+
+            //se agregan los parámetros del SP de consultar por cedula de usuario
+            MiCnn.ListaParametros.Add(new SqlParameter("@Cedula", this.Cedula));
+
+            DataTable Consulta = MiCnn.EjecutarSelect("SpUsuariosConsultarPorCedula");
+
+            if (Consulta.Rows.Count > 0)
+            {
+                R = true;
+            }
             return R;
         }
         public DataTable ListarActivos(bool VerActivos = true)
@@ -66,7 +101,7 @@ namespace Logica.Models
             //porque es SP lo que hace es un select de los usuarios, y por supuesto le paso por parámetro
             // el nombre del SP
             R = MiCnn.EjecutarSelect("SpUsuariosListarActivos");
-           
+
             return R;
         }
         public DataTable ListarInactivos()
